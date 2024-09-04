@@ -1,0 +1,15 @@
+{
+  "originHash" : "0346cd794928fe59937bd06b1c0e9592cb848ab54b229d6c500ebcd347e82e61",
+  "pins" : [
+    {
+      "identity" : "ddc.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/reitermarkus/DDC.swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "15b3ef8235a831e0d7812dbdf12d6a4bb16d3bd6"
+      }
+    }
+  ],
+  "version" : 3
+}

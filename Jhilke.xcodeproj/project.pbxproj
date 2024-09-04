@@ -11,6 +11,7 @@
 		5D2EAE462C87F4190033BF3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE452C87F4190033BF3C /* ContentView.swift */; };
 		5D2EAE482C87F41A0033BF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2EAE472C87F41A0033BF3C /* Assets.xcassets */; };
 		5D2EAE4B2C87F41A0033BF3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2EAE4A2C87F41A0033BF3C /* Preview Assets.xcassets */; };
+		5D2EAE592C87F74F0033BF3C /* DDC in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2EAE582C87F74F0033BF3C /* DDC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2EAE592C87F74F0033BF3C /* DDC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = Jhilke;
+			packageProductDependencies = (
+				5D2EAE582C87F74F0033BF3C /* DDC */,
+			);
 			productName = Jhilke;
 			productReference = 5D2EAE402C87F4190033BF3C /* Jhilke.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 5D2EAE372C87F4190033BF3C;
+			packageReferences = (
+				5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */,
+			);
 			productRefGroup = 5D2EAE412C87F4190033BF3C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +349,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reitermarkus/DDC.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D2EAE582C87F74F0033BF3C /* DDC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */;
+			productName = DDC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D2EAE382C87F4190033BF3C /* Project object */;
 }
