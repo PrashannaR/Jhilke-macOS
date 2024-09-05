@@ -11,7 +11,7 @@ import SwiftUI
 struct MonitorBrightnessControl: View {
     @State private var selectedScreenIndex = 0
     let screens = NSScreen.screens
-    @State private var brightness: Float = 50.0
+    @State private var brightness: Float = 100.0
 
     var body: some View {
         VStack(alignment: .leading) {
