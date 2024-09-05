@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D0031A12C8A42250052E4C8 /* Arm64DDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0031A02C8A42250052E4C8 /* Arm64DDC.swift */; };
-		5D0031A62C8A43730052E4C8 /* Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0031A52C8A43730052E4C8 /* Bridging-Header.m */; };
 		5D0031A92C8A44A40052E4C8 /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */; };
 		5D0031AA2C8A44A40052E4C8 /* CoreDisplay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5D2EAE442C87F4190033BF3C /* JhilkeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE432C87F4190033BF3C /* JhilkeApp.swift */; };
@@ -33,10 +31,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D0031A02C8A42250052E4C8 /* Arm64DDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arm64DDC.swift; sourceTree = "<group>"; };
-		5D0031A32C8A43720052E4C8 /* Jhilke-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jhilke-Bridging-Header.h"; sourceTree = "<group>"; };
-		5D0031A42C8A43730052E4C8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		5D0031A52C8A43730052E4C8 /* Bridging-Header.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Bridging-Header.m"; sourceTree = "<group>"; };
 		5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
 		5D2EAE402C87F4190033BF3C /* Jhilke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jhilke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2EAE432C87F4190033BF3C /* JhilkeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JhilkeApp.swift; sourceTree = "<group>"; };
@@ -62,10 +56,6 @@
 		5D00319F2C8A420F0052E4C8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5D0031A02C8A42250052E4C8 /* Arm64DDC.swift */,
-				5D0031A42C8A43730052E4C8 /* Bridging-Header.h */,
-				5D0031A52C8A43730052E4C8 /* Bridging-Header.m */,
-				5D0031A32C8A43720052E4C8 /* Jhilke-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -194,8 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2EAE5B2C87F7B40033BF3C /* MonitorBrightnessControl.swift in Sources */,
-				5D0031A62C8A43730052E4C8 /* Bridging-Header.m in Sources */,
-				5D0031A12C8A42250052E4C8 /* Arm64DDC.swift in Sources */,
 				5D2EAE462C87F4190033BF3C /* ContentView.swift in Sources */,
 				5D2EAE442C87F4190033BF3C /* JhilkeApp.swift in Sources */,
 			);
