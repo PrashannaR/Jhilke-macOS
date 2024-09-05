@@ -5,7 +5,7 @@
 //  Created by Prashanna Rajbhandari on 04/09/2024.
 //
 
-
+import CoreGraphics
 import SwiftUI
 
 struct MonitorBrightnessControl: View {
@@ -29,7 +29,9 @@ struct MonitorBrightnessControl: View {
                 Text("Brightness")
             }
             .frame(width: 300)
-            
+            .onChange(of: brightness) { newValue in
+                setScreenBrightness(for: screens[selectedScreenIndex], brightness: newValue)
+            }
         }
         .padding()
     }
@@ -39,3 +41,32 @@ struct MonitorBrightnessControl: View {
     MonitorBrightnessControl()
 }
 
+extension MonitorBrightnessControl {
+    private func setScreenBrightness(for screen: NSScreen, brightness: Float) {
+        guard let displayID = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID else {
+            print("Failed to get display ID.")
+            return
+        }
+
+        let gammaValue = brightness / 100.0
+        setGamma(displayID: displayID, gamma: gammaValue)
+    }
+
+    private func setGamma(displayID: CGDirectDisplayID, gamma: Float) {
+        var redTable = [CGGammaValue](repeating: 0, count: 256)
+        var greenTable = [CGGammaValue](repeating: 0, count: 256)
+        var blueTable = [CGGammaValue](repeating: 0, count: 256)
+
+        for i in 0 ..< 256 {
+            let value = Float(i) / 255.0
+            redTable[i] = CGGammaValue(value * gamma)
+            greenTable[i] = CGGammaValue(value * gamma)
+            blueTable[i] = CGGammaValue(value * gamma)
+        }
+
+        let result = CGSetDisplayTransferByTable(displayID, 256, redTable, greenTable, blueTable)
+        if result != CGError.success {
+            print("Error setting gamma: \(result)")
+        }
+    }
+}
