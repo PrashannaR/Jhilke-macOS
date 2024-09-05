@@ -1,13 +1,22 @@
 {
-  "originHash" : "0346cd794928fe59937bd06b1c0e9592cb848ab54b229d6c500ebcd347e82e61",
+  "originHash" : "c201f042962a41c3505f756551b0cf1d75c944b088a490767e1ff70eb580d959",
   "pins" : [
     {
-      "identity" : "ddc.swift",
+      "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/reitermarkus/DDC.swift",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "9564d61b08a5335ae0a36f789a7d71493eacadfc",
+        "version" : "0.3.2"
+      }
+    },
+    {
+      "identity" : "swift-ddc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aleksey-mashanov/swift-ddc.git",
       "state" : {
         "branch" : "master",
-        "revision" : "15b3ef8235a831e0d7812dbdf12d6a4bb16d3bd6"
+        "revision" : "4c4e1487515d5cfcea55470eb44be59a27a11a25"
       }
     }
   ],

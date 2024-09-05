@@ -11,8 +11,8 @@
 		5D2EAE462C87F4190033BF3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE452C87F4190033BF3C /* ContentView.swift */; };
 		5D2EAE482C87F41A0033BF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2EAE472C87F41A0033BF3C /* Assets.xcassets */; };
 		5D2EAE4B2C87F41A0033BF3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2EAE4A2C87F41A0033BF3C /* Preview Assets.xcassets */; };
-		5D2EAE592C87F74F0033BF3C /* DDC in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2EAE582C87F74F0033BF3C /* DDC */; };
 		5D2EAE5B2C87F7B40033BF3C /* MonitorBrightnessControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE5A2C87F7B40033BF3C /* MonitorBrightnessControl.swift */; };
+		5D2EAE5E2C894CC50033BF3C /* DDC in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2EAE5D2C894CC50033BF3C /* DDC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2EAE592C87F74F0033BF3C /* DDC in Frameworks */,
+				5D2EAE5E2C894CC50033BF3C /* DDC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			);
 			name = Jhilke;
 			packageProductDependencies = (
-				5D2EAE582C87F74F0033BF3C /* DDC */,
+				5D2EAE5D2C894CC50033BF3C /* DDC */,
 			);
 			productName = Jhilke;
 			productReference = 5D2EAE402C87F4190033BF3C /* Jhilke.app */;
@@ -122,7 +122,7 @@
 			);
 			mainGroup = 5D2EAE372C87F4190033BF3C;
 			packageReferences = (
-				5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */,
+				5D2EAE5C2C894CC50033BF3C /* XCRemoteSwiftPackageReference "swift-ddc" */,
 			);
 			productRefGroup = 5D2EAE412C87F4190033BF3C /* Products */;
 			projectDirPath = "";
@@ -355,9 +355,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */ = {
+		5D2EAE5C2C894CC50033BF3C /* XCRemoteSwiftPackageReference "swift-ddc" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reitermarkus/DDC.swift";
+			repositoryURL = "https://github.com/aleksey-mashanov/swift-ddc.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -366,9 +366,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D2EAE582C87F74F0033BF3C /* DDC */ = {
+		5D2EAE5D2C894CC50033BF3C /* DDC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D2EAE572C87F74F0033BF3C /* XCRemoteSwiftPackageReference "DDC" */;
+			package = 5D2EAE5C2C894CC50033BF3C /* XCRemoteSwiftPackageReference "swift-ddc" */;
 			productName = DDC;
 		};
 /* End XCSwiftPackageProductDependency section */
