@@ -5,6 +5,12 @@
 //  Created by Prashanna Rajbhandari on 04/09/2024.
 //
 
+/*
+ TODO:
+    add temperature control
+    
+ */
+
 import CoreGraphics
 import SwiftUI
 

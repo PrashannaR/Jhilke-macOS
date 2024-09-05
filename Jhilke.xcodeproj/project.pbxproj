@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D0031A92C8A44A40052E4C8 /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */; };
-		5D0031AA2C8A44A40052E4C8 /* CoreDisplay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5D2EAE442C87F4190033BF3C /* JhilkeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE432C87F4190033BF3C /* JhilkeApp.swift */; };
 		5D2EAE462C87F4190033BF3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE452C87F4190033BF3C /* ContentView.swift */; };
 		5D2EAE482C87F41A0033BF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2EAE472C87F41A0033BF3C /* Assets.xcassets */; };
@@ -16,22 +14,7 @@
 		5D2EAE5B2C87F7B40033BF3C /* MonitorBrightnessControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EAE5A2C87F7B40033BF3C /* MonitorBrightnessControl.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5D0031AB2C8A44A40052E4C8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5D0031AA2C8A44A40052E4C8 /* CoreDisplay.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
 		5D2EAE402C87F4190033BF3C /* Jhilke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jhilke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2EAE432C87F4190033BF3C /* JhilkeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JhilkeApp.swift; sourceTree = "<group>"; };
 		5D2EAE452C87F4190033BF3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,7 +29,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0031A92C8A44A40052E4C8 /* CoreDisplay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,20 +42,11 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		5D0031A72C8A44A40052E4C8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5D0031A82C8A44A40052E4C8 /* CoreDisplay.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5D2EAE372C87F4190033BF3C = {
 			isa = PBXGroup;
 			children = (
 				5D2EAE422C87F4190033BF3C /* Jhilke */,
 				5D2EAE412C87F4190033BF3C /* Products */,
-				5D0031A72C8A44A40052E4C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,7 +90,6 @@
 				5D2EAE3C2C87F4190033BF3C /* Sources */,
 				5D2EAE3D2C87F4190033BF3C /* Frameworks */,
 				5D2EAE3E2C87F4190033BF3C /* Resources */,
-				5D0031AB2C8A44A40052E4C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
