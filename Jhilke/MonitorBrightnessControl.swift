@@ -20,7 +20,7 @@ struct MonitorBrightnessControl: View {
 
             Picker("Select Screen", selection: $selectedScreenIndex) {
                 ForEach(0 ..< screens.count, id: \.self) { index in
-                    Text("Screen \(index + 1): \(screens[index].localizedName)")
+                    Text("\(screens[index].localizedName)")
                 }
             }
             .pickerStyle(.radioGroup)
