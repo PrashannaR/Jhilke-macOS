@@ -35,7 +35,7 @@ struct MonitorBrightnessControl: View {
                 Text("Brightness")
             }
             .frame(width: 300)
-            .onChange(of: brightness) { newValue in
+            .onChange(of: brightness) { _, newValue in
                 setScreenBrightness(for: screens[selectedScreenIndex], brightness: newValue)
             }
         }
