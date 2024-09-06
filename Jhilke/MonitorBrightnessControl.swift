@@ -48,6 +48,7 @@ struct MonitorBrightnessControl: View {
 }
 
 extension MonitorBrightnessControl {
+    //MARK: Set screen brightness
     private func setScreenBrightness(for screen: NSScreen, brightness: Float) {
         guard let displayID = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID else {
             print("Failed to get display ID.")
@@ -57,7 +58,7 @@ extension MonitorBrightnessControl {
         let gammaValue = brightness / 100.0
         setGamma(displayID: displayID, gamma: gammaValue)
     }
-
+    //MARK: Set Gamma
     private func setGamma(displayID: CGDirectDisplayID, gamma: Float) {
         var redTable = [CGGammaValue](repeating: 0, count: 256)
         var greenTable = [CGGammaValue](repeating: 0, count: 256)
