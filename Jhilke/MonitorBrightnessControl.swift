@@ -31,7 +31,7 @@ struct MonitorBrightnessControl: View {
             }
             .pickerStyle(.radioGroup)
 
-            Slider(value: $brightness, in: 0 ... 100, step: 1) {
+            Slider(value: $brightness, in: 25 ... 100, step: 1) {
                 Text("Brightness")
             }
             .frame(width: 300)
