@@ -34,7 +34,10 @@ struct MonitorBrightnessControl: View {
             }
             .pickerStyle(.radioGroup)
                     
-            brightnessSlider()
+            
+            GenericSliderView(value: $brightness, minValue: Float(minBrightness), maxValue: Float(maxBrightness), label: "Brightness", imageStart: "sun.min", imageEnd: "sun.max") { newBrightness in
+                setScreenBrightness(for: screens[selectedScreenIndex], brightness: newBrightness)
+            }
 
             
             
@@ -80,46 +83,4 @@ extension MonitorBrightnessControl {
         }
     }
     
-    //MARK: brightness slider
-    private func brightnessSlider() -> some View {
-        HStack {
-            Text("Brightness")
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 250, height: 30)
-                    .foregroundColor(.gray.opacity(0.3))
-                    .overlay {
-                        ZStack {
-                            GeometryReader { geometry in
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: (CGFloat(brightness) / maxBrightness) * geometry.size.width, height: 30)
-                                        .foregroundColor(.white)
-                                        .gesture(
-                                            DragGesture(minimumDistance: 0)
-                                                .onChanged { value in
-                                                    let dragX = value.location.x
-                                                    let newBrightness = (dragX / geometry.size.width) * (maxBrightness - minBrightness) + minBrightness
-                                                    brightness = Float(max(min(newBrightness, maxBrightness), minBrightness))
-                                                    
-                                                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness)
-                                                }
-                                        )
-                                    Spacer()
-                                }
-                            }
-                            
-                            HStack {
-                                Image(systemName: "sun.min")
-                                Spacer()
-                                Image(systemName: "sun.max")
-                            }
-                            .foregroundColor(.gray)
-                            .padding(.horizontal, 8)
-                        }
-                    }
-            }
-        }
-    }
-
 }
