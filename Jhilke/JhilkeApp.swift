@@ -13,7 +13,7 @@ struct JhilkeApp: App {
         MenuBarExtra {
             MonitorBrightnessControl()
         } label: {
-            Label("Jhilke", systemImage: "thermometer")
+            Label("Jhilke", systemImage: "slider.horizontal.below.sun.max")
         }
         .menuBarExtraStyle(.window)
 
