@@ -29,8 +29,6 @@
 ## Upcoming Features
 We are actively working on new features to enhance your experience. Here’s what’s coming soon:
 - **Auto Start on Startup**: Jhilke will automatically launch when you boot your macOS device.
-- **Menu Bar Action Button**: Quickly access and control your external monitor brightness right from the menu bar.
-- **Temperature Control**: Adjust the color temperature of your external monitor for better eye comfort, especially during night-time usage.
 - **Time-Based Auto Brightness and Temperature Control**: Automatically adjust brightness and color temperature based on the time of day.
 
 ## Contributions
