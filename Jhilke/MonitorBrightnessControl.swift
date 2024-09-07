@@ -81,8 +81,8 @@ extension MonitorBrightnessControl {
     }
     
     //MARK: brightness slider
-    private func brightnessSlider() -> some View{
-        HStack{
+    private func brightnessSlider() -> some View {
+        HStack {
             Text("Brightness")
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -90,21 +90,23 @@ extension MonitorBrightnessControl {
                     .foregroundColor(.gray.opacity(0.3))
                     .overlay {
                         ZStack {
-                            HStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: (CGFloat(brightness) / maxBrightness) * 250, height: 30)
-                                    .foregroundColor(.white)
-                                    .gesture(
-                                        DragGesture(minimumDistance: 0)
-                                            .onChanged { value in
-                                                let dragX = value.location.x
-                                                let newBrightness = (dragX / 300) * (maxBrightness - minBrightness) + minBrightness
-                                                brightness = Float(max(min(newBrightness, maxBrightness), minBrightness))
-                                                
-                                                setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness)
-
-                                            }
-                                    )
+                            GeometryReader { geometry in
+                                HStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(width: (CGFloat(brightness) / maxBrightness) * geometry.size.width, height: 30)
+                                        .foregroundColor(.white)
+                                        .gesture(
+                                            DragGesture(minimumDistance: 0)
+                                                .onChanged { value in
+                                                    let dragX = value.location.x
+                                                    let newBrightness = (dragX / geometry.size.width) * (maxBrightness - minBrightness) + minBrightness
+                                                    brightness = Float(max(min(newBrightness, maxBrightness), minBrightness))
+                                                    
+                                                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness)
+                                                }
+                                        )
+                                    Spacer()
+                                }
                             }
                             
                             HStack {
@@ -119,4 +121,5 @@ extension MonitorBrightnessControl {
             }
         }
     }
+
 }
