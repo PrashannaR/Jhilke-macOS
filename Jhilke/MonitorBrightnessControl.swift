@@ -22,12 +22,28 @@ struct MonitorBrightnessControl: View {
     
     @State var sideBarVisibility: NavigationSplitViewVisibility = .doubleColumn
 
-
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
         NavigationSplitView(columnVisibility: $sideBarVisibility) {
             VStack{
-
-                Spacer()
+                Image("jhilke")
+                    .resizable()
+                    .scaledToFit()
+                
+                HStack{
+                    Text("Jhilke on")
+                    
+                    Button("Github") {
+                        guard let url = URL(string: "https://github.com/PrashannaR/Jhilke-macOS") else {
+                            return
+                        }
+                        openURL(url)
+                    }
+                    .buttonStyle(LinkButtonStyle())
+                    
+                }
+                
             }
             .padding()
         } detail: {
