@@ -11,7 +11,8 @@ import SwiftUI
 struct JhilkeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MonitorBrightnessControl()
         }
+        .windowResizability(.contentSize)
     }
 }
