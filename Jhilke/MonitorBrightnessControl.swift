@@ -19,30 +19,51 @@ struct MonitorBrightnessControl: View {
     @State private var temperature: Float = 6500.0
     let minTemperature: Float = 2000
     let maxTemperature: Float = 10000
+    
+    @State var sideBarVisibility: NavigationSplitViewVisibility = .doubleColumn
+
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Jhilke ;)")
-                .font(.title2)
+        NavigationSplitView(columnVisibility: $sideBarVisibility) {
+            VStack{
 
-            Picker("Select Screen", selection: $selectedScreenIndex) {
-                ForEach(0 ..< screens.count, id: \.self) { index in
-                    Text("\(screens[index].localizedName)")
+                Spacer()
+            }
+            .padding()
+        } detail: {
+            VStack(alignment: .leading) {
+
+                Picker("Select Screen", selection: $selectedScreenIndex) {
+                    ForEach(0 ..< screens.count, id: \.self) { index in
+                        Text("\(screens[index].localizedName)")
+                    }
+                }
+                .pickerStyle(.radioGroup)
+                
+                //brightness
+                GenericSliderView(value: $brightness, minValue: Float(minBrightness), maxValue: Float(maxBrightness), label: "Brightness", imageStart: "sun.min", imageEnd: "sun.max") { newBrightness in
+                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: newBrightness, temperature: temperature)
+                }
+                
+                //temperature
+                GenericSliderView(value: $temperature, minValue: minTemperature, maxValue: maxTemperature, label: "Temperature", imageStart: "thermometer.sun", imageEnd: "thermometer.snowflake") { newTemp in
+                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: newTemp)
+                }
+                
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        resetToDefaults()
+                    }, label: {
+                        Text("Reset to Defaults")
+                    })
+                    
                 }
             }
-            .pickerStyle(.radioGroup)
+            .padding()
             
-            //brightness
-            GenericSliderView(value: $brightness, minValue: Float(minBrightness), maxValue: Float(maxBrightness), label: "Brightness", imageStart: "sun.min", imageEnd: "sun.max") { newBrightness in
-                setScreenBrightness(for: screens[selectedScreenIndex], brightness: newBrightness, temperature: temperature)
-            }
-            
-            //temperature
-            GenericSliderView(value: $temperature, minValue: minTemperature, maxValue: maxTemperature, label: "Temperature", imageStart: "thermometer.sun", imageEnd: "thermometer.snowflake") { newTemp in
-                setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: newTemp)
-            }
         }
-        .padding()
+
     }
 }
 
@@ -85,7 +106,7 @@ extension MonitorBrightnessControl {
         }
     }
 
-
+    //MARK: Temperature factor
     private func temperatureFactor(temperature: Float) -> (red: Float, green: Float, blue: Float) {
         let t = temperature / 100
 
@@ -94,5 +115,15 @@ extension MonitorBrightnessControl {
         let blue: Float = t >= 66 ? 1.0 : (t <= 19 ? 0 : min(max(138.5177312231 * log(t - 10) - 305.0447927307, 0), 255) / 255)
 
         return (red, green, blue)
+    }
+    
+    //MARK: Reset to defaults
+    private func resetToDefaults(){
+        DispatchQueue.main.async {
+            brightness = 100.0
+            temperature = 6500.0
+            
+            setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: temperature)
+        }
     }
 }
