@@ -8,7 +8,7 @@
 /*
  TODO:
     add temperature control
-    
+
  */
 
 import CoreGraphics
@@ -18,6 +18,9 @@ struct MonitorBrightnessControl: View {
     @State private var selectedScreenIndex = 0
     let screens = NSScreen.screens
     @State private var brightness: Float = 100.0
+
+    let minBrightness: CGFloat = 25
+    let maxBrightness: CGFloat = 100
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,14 +33,11 @@ struct MonitorBrightnessControl: View {
                 }
             }
             .pickerStyle(.radioGroup)
+                    
+            brightnessSlider()
 
-            Slider(value: $brightness, in: 25 ... 100, step: 1) {
-                Text("Brightness")
-            }
-            .frame(width: 300)
-            .onChange(of: brightness) { _, newValue in
-                setScreenBrightness(for: screens[selectedScreenIndex], brightness: newValue)
-            }
+            
+            
         }
         .padding()
     }
@@ -48,7 +48,8 @@ struct MonitorBrightnessControl: View {
 }
 
 extension MonitorBrightnessControl {
-    //MARK: Set screen brightness
+    // MARK: Set screen brightness
+
     private func setScreenBrightness(for screen: NSScreen, brightness: Float) {
         guard let displayID = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID else {
             print("Failed to get display ID.")
@@ -58,7 +59,9 @@ extension MonitorBrightnessControl {
         let gammaValue = brightness / 100.0
         setGamma(displayID: displayID, gamma: gammaValue)
     }
-    //MARK: Set Gamma
+
+    // MARK: Set Gamma
+
     private func setGamma(displayID: CGDirectDisplayID, gamma: Float) {
         var redTable = [CGGammaValue](repeating: 0, count: 256)
         var greenTable = [CGGammaValue](repeating: 0, count: 256)
@@ -74,6 +77,43 @@ extension MonitorBrightnessControl {
         let result = CGSetDisplayTransferByTable(displayID, 256, redTable, greenTable, blueTable)
         if result != CGError.success {
             print("Error setting gamma: \(result)")
+        }
+    }
+    
+    //MARK: brightness slider 
+    private func brightnessSlider() -> some View{
+        HStack{
+            Text("Brightness")
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: 250, height: 30)
+                    .foregroundColor(.gray.opacity(0.3))
+                    .overlay {
+                        ZStack {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: (CGFloat(brightness) / maxBrightness) * 250, height: 30)
+                                    .foregroundColor(.white)
+                                    .gesture(
+                                        DragGesture(minimumDistance: 0)
+                                            .onChanged { value in
+                                                let dragX = value.location.x
+                                                let newBrightness = (dragX / 300) * (maxBrightness - minBrightness) + minBrightness
+                                                brightness = Float(max(min(newBrightness, maxBrightness), minBrightness))
+                                            }
+                                    )
+                            }
+                            
+                            HStack {
+                                Image(systemName: "sun.min")
+                                Spacer()
+                                Image(systemName: "sun.max")
+                            }
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 8)
+                        }
+                    }
+            }
         }
     }
 }
