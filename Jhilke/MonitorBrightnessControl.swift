@@ -19,67 +19,62 @@ struct MonitorBrightnessControl: View {
     @State private var temperature: Float = 6500.0
     let minTemperature: Float = 2000
     let maxTemperature: Float = 10000
-    
+
     @State var sideBarVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     @Environment(\.openURL) var openURL
-    
+
     var body: some View {
-        NavigationSplitView(columnVisibility: $sideBarVisibility) {
-            VStack{
-                Image("jhilke")
-                    .resizable()
-                    .scaledToFit()
-                
-                HStack{
-                    Text("Jhilke on")
-                    
-                    Button("Github") {
-                        guard let url = URL(string: "https://github.com/PrashannaR/Jhilke-macOS") else {
-                            return
+        ZStack {
+            Color.black.opacity(0.4)
+            HStack {
+                VStack(alignment: .leading) {
+                    Picker("Select Screen", selection: $selectedScreenIndex) {
+                        ForEach(0 ..< screens.count, id: \.self) { index in
+                            Text("\(screens[index].localizedName)")
                         }
-                        openURL(url)
                     }
-                    .buttonStyle(LinkButtonStyle())
-                    
-                }
-                
-            }
-            .padding()
-        } detail: {
-            VStack(alignment: .leading) {
+                    .pickerStyle(.radioGroup)
 
-                Picker("Select Screen", selection: $selectedScreenIndex) {
-                    ForEach(0 ..< screens.count, id: \.self) { index in
-                        Text("\(screens[index].localizedName)")
+                    // brightness
+                    GenericSliderView(value: $brightness, minValue: Float(minBrightness), maxValue: Float(maxBrightness), label: "Brightness", imageStart: "sun.min", imageEnd: "sun.max") { newBrightness in
+                        setScreenBrightness(for: screens[selectedScreenIndex], brightness: newBrightness, temperature: temperature)
+                    }
+
+                    // temperature
+                    GenericSliderView(value: $temperature, minValue: minTemperature, maxValue: maxTemperature, label: "Temperature", imageStart: "thermometer.sun", imageEnd: "thermometer.snowflake") { newTemp in
+                        setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: newTemp)
+                    }
+
+                    HStack {
+                        Text("Jhilke on")
+                        Button("GitHub") {
+                            guard let url = URL(string: "https://github.com/PrashannaR/Jhilke-macOS") else {
+                                return
+                            }
+                            openURL(url)
+                        }
+                        .buttonStyle(LinkButtonStyle())
+                        Spacer()
+                        Button(action: {
+                            resetToDefaults()
+                        }, label: {
+                            Text("Reset to Defaults")
+                        })
+                    }
+                    .padding(.top, 8)
+                    
+                    Divider()
+                    
+                    Button("Quit") {
+                        quit()
                     }
                 }
-                .pickerStyle(.radioGroup)
+                .padding()
                 
-                //brightness
-                GenericSliderView(value: $brightness, minValue: Float(minBrightness), maxValue: Float(maxBrightness), label: "Brightness", imageStart: "sun.min", imageEnd: "sun.max") { newBrightness in
-                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: newBrightness, temperature: temperature)
-                }
-                
-                //temperature
-                GenericSliderView(value: $temperature, minValue: minTemperature, maxValue: maxTemperature, label: "Temperature", imageStart: "thermometer.sun", imageEnd: "thermometer.snowflake") { newTemp in
-                    setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: newTemp)
-                }
-                
-                HStack{
-                    Spacer()
-                    Button(action: {
-                        resetToDefaults()
-                    }, label: {
-                        Text("Reset to Defaults")
-                    })
-                    
-                }
+          
             }
-            .padding()
-            
         }
-
     }
 }
 
@@ -122,7 +117,8 @@ extension MonitorBrightnessControl {
         }
     }
 
-    //MARK: Temperature factor
+    // MARK: Temperature factor
+
     private func temperatureFactor(temperature: Float) -> (red: Float, green: Float, blue: Float) {
         let t = temperature / 100
 
@@ -132,14 +128,19 @@ extension MonitorBrightnessControl {
 
         return (red, green, blue)
     }
-    
-    //MARK: Reset to defaults
-    private func resetToDefaults(){
+
+    // MARK: Reset to defaults
+
+    private func resetToDefaults() {
         DispatchQueue.main.async {
             brightness = 100.0
             temperature = 6500.0
-            
+
             setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness, temperature: temperature)
         }
+    }
+    
+    private func quit(){
+        NSApp.terminate(nil)
     }
 }

@@ -24,6 +24,7 @@
 		5D2EAE4C2C87F41A0033BF3C /* Jhilke.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jhilke.entitlements; sourceTree = "<group>"; };
 		5D2EAE5A2C87F7B40033BF3C /* MonitorBrightnessControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorBrightnessControl.swift; sourceTree = "<group>"; };
 		5DD1324E2C8BF50400539FD6 /* GenericSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSliderView.swift; sourceTree = "<group>"; };
+		5DD132502C8C15AD00539FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		5D2EAE422C87F4190033BF3C /* Jhilke */ = {
 			isa = PBXGroup;
 			children = (
+				5DD132502C8C15AD00539FD6 /* Info.plist */,
 				5D00319F2C8A420F0052E4C8 /* Utils */,
 				5D2EAE432C87F4190033BF3C /* JhilkeApp.swift */,
 				5D2EAE452C87F4190033BF3C /* ContentView.swift */,
@@ -303,8 +305,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jhilke/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Jhilke;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -337,8 +341,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jhilke/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Jhilke;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

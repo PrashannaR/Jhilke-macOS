@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct JhilkeApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra {
             MonitorBrightnessControl()
-                .padding()
+        } label: {
+            Label("Jhilke", systemImage: "thermometer")
         }
-        .windowResizability(.contentSize)
+        .menuBarExtraStyle(.window)
+
     }
 }
