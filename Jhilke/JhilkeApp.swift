@@ -12,6 +12,7 @@ struct JhilkeApp: App {
     var body: some Scene {
         WindowGroup {
             MonitorBrightnessControl()
+                .padding()
         }
         .windowResizability(.contentSize)
     }

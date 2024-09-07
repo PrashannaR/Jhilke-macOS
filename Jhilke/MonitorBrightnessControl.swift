@@ -5,12 +5,6 @@
 //  Created by Prashanna Rajbhandari on 04/09/2024.
 //
 
-/*
- TODO:
-    add temperature control
-
- */
-
 import CoreGraphics
 import SwiftUI
 
@@ -28,7 +22,7 @@ struct MonitorBrightnessControl: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Control Screen Brightness")
+            Text("Jhilke ;)")
                 .font(.title2)
 
             Picker("Select Screen", selection: $selectedScreenIndex) {

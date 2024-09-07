@@ -17,7 +17,7 @@ struct GenericSliderView<ValueType: BinaryFloatingPoint>: View {
     var onValueChanged: (ValueType) -> Void
 
     var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             Text(label)
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
