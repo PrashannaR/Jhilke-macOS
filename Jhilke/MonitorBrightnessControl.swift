@@ -80,7 +80,7 @@ extension MonitorBrightnessControl {
         }
     }
     
-    //MARK: brightness slider 
+    //MARK: brightness slider
     private func brightnessSlider() -> some View{
         HStack{
             Text("Brightness")
@@ -100,6 +100,9 @@ extension MonitorBrightnessControl {
                                                 let dragX = value.location.x
                                                 let newBrightness = (dragX / 300) * (maxBrightness - minBrightness) + minBrightness
                                                 brightness = Float(max(min(newBrightness, maxBrightness), minBrightness))
+                                                
+                                                setScreenBrightness(for: screens[selectedScreenIndex], brightness: brightness)
+
                                             }
                                     )
                             }
