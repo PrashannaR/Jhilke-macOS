@@ -6,7 +6,7 @@
 ## Features
 - Control the brightness of your external monitors with precision
 - Easy-to-use interface built with SwiftUI
-- Gamma table-based brightness adjustments for optimal performance
+- Gamma table-based brightness adjustments
 - Support for multiple external monitors
 
 ## How to Use
